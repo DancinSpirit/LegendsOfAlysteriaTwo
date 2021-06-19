@@ -41,11 +41,22 @@ nav{
     height: 100%;
     width: 100%;
 }
-#sub-main{
+#sub-main-container-container{
     height: calc(100% - 50px);
+    width: 100%;
+    overflow: hidden;
+}
+#sub-main-container{
+    height: 200%;
+    width: 200%;
     display: flex;
-    justify-content: center;
-    align-items: center;
+}
+#sub-main, #old-sub-state{
+  height: 50%;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* Forms */
