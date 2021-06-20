@@ -1,9 +1,11 @@
-
 if(!user){
-    if(states[1]!="register")
+    if(states[1]!="register"){
         states = ["main","login"];
+        window.history.pushState(states, "Login Page", "/main/login");
+    }
 }else if(!states[1]){
     states[1] = "home";
+    window.history.pushState(states, "Home Page", "/main/home");
 } 
 
 loadStates();

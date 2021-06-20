@@ -22,5 +22,5 @@ mongoose.connection.on("error", function(err){
 });
 
 module.exports = {
-    Character: require("./Character")
+    User: require("./User")
 }

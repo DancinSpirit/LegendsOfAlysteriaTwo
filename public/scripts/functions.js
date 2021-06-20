@@ -41,14 +41,14 @@ const activateButtons = function(){
         states = ["main","login"]
         window.history.pushState(states, "Login Page", "/main/login");
         deactivateButtons();
-        await loadState(1, "left");
+        await loadState(1, "up");
         activateButtons();
     })
     $("#register-button").on("click", async function(){
         states = ["main","register"]
         window.history.pushState(states, "Register Page", "/main/register");
         deactivateButtons();
-        await loadState(1, "right");
+        await loadState(1, "down");
         activateButtons();
     })
 }

@@ -31,8 +31,43 @@ const right = async function(index, component){
         },10);
     })
 }
-
-
+const up = async function(index, component){
+    return new Promise((resolve)=>{
+        $(`#sub-${states[index]}-container`).css("display","block");
+        $(`#sub-${states[index]}`).attr("id","old-sub-state");
+        $(`#sub-${states[index]}-container`).append(`<section id="sub-${states[index]}"></section>`)
+        $(`#sub-${states[index]}`).html(component);
+        $(`#sub-${states[index]}-container`).css("transition","1000ms");
+        $(`#sub-${states[index]}-container`).css("transform","translateY(-50%)")
+        setTimeout(function(){
+            $(`#sub-${states[index]}-container`).css("transition","0ms");
+            $("#old-sub-state").remove();
+            $(`#sub-${states[index]}-container`).css("transform","translate(0%,0%)");
+            $(`#sub-${states[index]}-container`).css("display","flex");
+            resolve();
+        },1000)
+    })
+}
+const down = async function(index, component){
+    return new Promise((resolve)=>{
+        $(`#sub-${states[index]}-container`).css("display","block");
+        $(`#sub-${states[index]}`).attr("id","old-sub-state");
+        $(`#sub-${states[index]}-container`).prepend(`<section id="sub-${states[index]}"></section>`)
+        $(`#sub-${states[index]}`).html(component);
+        $(`#sub-${states[index]}-container`).css("transform","translateY(-50%)");
+        setTimeout(function(){
+            $(`#sub-${states[index]}-container`).css("transition","1000ms");
+            $(`#sub-${states[index]}-container`).css("transform","translateY(0%)")
+            setTimeout(function(){
+                $(`#sub-${states[index]}-container`).css("transition","0ms");
+                $("#old-sub-state").remove();
+                $(`#sub-${states[index]}-container`).css("transform","translate(0%,0%)");
+                $(`#sub-${states[index]}-container`).css("display","flex");
+                resolve();
+            },1000)
+        },10);
+    })
+}
 
 
 
